@@ -13,6 +13,11 @@ License: [GNU General Public License v3](http://www.gnu.org/licenses/gpl.html)
 
 Change logs: change logs are versioned in the [repository](https://github.com/fikovnik/ShiftIt/tree/develop/release) as well.
 
+## About Fork
+
+This fork changes the behaviour of the shift-left and shift-right operations to cycle between window widths that are one-half, one-third and two-thirds of the screen width.
+This allows for easy division of wide screens into thirds.
+
 ## Download
 
 A binary build for OSX 10.7+ is available in [releases](https://github.com/fikovnik/ShiftIt/releases).
