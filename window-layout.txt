@@ -1,0 +1,47 @@
+# Layout
+* 2 rows x 12 columns
+* Allows window to be sized by quarters, thirds and halves of the screen width.
+
+# Keyboard Shortcuts
+
+## Full Height
+Shortcut | Window Position
+---------|----------------
+⌘←       | Left Half
+⌘←←      | Left Third
+⌘←←←     | Left Quarter
+⌘↓       | Center Half
+⌘↓↓      | Center Third
+⌘→       | Right Half
+⌘→→      | Right Third
+⌘→→→     | Right Quarter
+
+## Top Row
+Shortcut | Window Position
+---------|----------------
+X⇧←      | Top Left Half
+X⇧←←     | Top Left Third
+X⇧←←←    | Top Left Quarter
+X⇧↓      | Top Center Half
+X⇧↓↓     | Top Center Third
+X⇧→      | Top Right Half
+X⇧→→     | Top Right Third
+X⇧→→→    | Top Right Quarter
+
+## Bottom Row
+Shortcut | Window Position
+---------|----------------
+X⌥←      | Bottom Left Half
+X⌥←←     | Bottom Left Third
+X⌥←←←    | Bottom Left Quarter
+X⌥↓      | Bottom Center Half
+X⌥↓↓     | Bottom Center Third
+X⌥→      | Bottom Right Half
+X⌥→→     | Bottom Right Third
+X⌥→→→    | Bottom Right Quarter
+
+## Other
+Shortcut | Window Position
+---------|----------------
+X↑       | Maximize
+X↑↑      | Center
