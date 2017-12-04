@@ -59,13 +59,13 @@ For instructions on accessibility in Mac OS X 10.9.x, see [this comment](https:/
 This can be done either using  the GUI in _System Preferences_ -> _Security & Privacy_ -> _Privacy_ -> _Accessibility_ where it is necessary to check and uncheck the checkbox which is next to ShiftIt in the _Allow the apps below to control your computer_.
 If ShiftIt is not in the list, just drag and drop it there from the `Applications` folder.
 
-![ShiftIt permissions](https://raw.githubusercontent.com/fikovnik/ShiftIt/develop/ShiftIt/AccessibilitySettings-Maverick.png)
+![ShiftIt permissions](https://raw.githubusercontent.com/fikovnik/ShiftIt/develop/ShiftIt/AccessibilitySettingsMaverick.png)
 
 Alternatively, this can be also done in a command line, however, this is rather a hack with all potential issues hacks come with.
 
 ```sh
 $ sudo sqlite3 '/Library/Application Support/com.apple.TCC/TCC.db' 'update access set allowed=1 where client like "%org.shiftitapp.ShiftIt%"'
-``` 
+```
 
 For instructions on accessibility in Mac OS X 10.9.x, see [this comment](https://github.com/fikovnik/ShiftIt/issues/110#issuecomment-20834932).
 If you've upgraded to 10.10, just uncheck and recheck the box to make things work again.
@@ -97,11 +97,35 @@ $ brew cask install shiftit
 
 ### Making a release
 
+First, update the release version in [ShiftIt/ShiftIt-Info.plist](ShiftIt/ShiftIt-Info.plist).
+
 Releases are handled using [fabric](http://docs.fabfile.org/en/1.5/). There are some dependencies that can be easily obtained using `pip`:
 
 * [fabric](http://docs.fabfile.org/en/1.5/) - the build system itself
 * [github3](https://github.com/sigmavirus24/github3.py) - library for GitHub 3 API
-* [pystache](https://github.com/defunkt/pystache) - templates 
+* [pystache](https://github.com/defunkt/pystache) - templates
+
+NOTE: this is Python2 compatible; it will error out under Python3.
+
+Using [pipenv](https://docs.pipenv.org/), a release environment
+can be created with the following command:
+```
+$ pipenv install --two
+$ pipenv shell
+```
+
+Prior to running the commands below, ensure the following environment variables are set:
+
+```
+export SHIFTIT_PRIVATE_KEY=~/.shiftit/dsa_priv.pem.gpg  # get this from the project contributors
+export SHIFTIT_GITHUB_TOKEN=~/.shiftit/github.token.gpg  # this is your personal access token
+export SHIFTIT_GITHUB_USER=fikovnik
+export SHIFTIT_GITHUB_REPO=ShiftIt
+```
+
+Get your personal access token from [Github's developer settings page](https://github.com/settings/tokens).
+
+As you see above, the private key and github token can be gpg-encrypted at rest.  This is optional and they can simply be plain text; just don't suffix the files with `.gpg`.
 
 The releases are fully automatic which hopefully will help to release more often.
 
