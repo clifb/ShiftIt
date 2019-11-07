@@ -17,6 +17,10 @@ Change logs: change logs are versioned in the [repository](https://github.com/fi
 
 A binary build for OSX 10.7+ is available in [releases](https://github.com/fikovnik/ShiftIt/releases).
 
+## Installation
+
+Please note, because the binary is not signed, you'll have to "right click" on the application, click "Open", and subsequently click "Open" in the dialog that appears.  You only have to do this the first time you launch the newly-downloaded application.
+
 ## User guide
 
 ShiftIt installs itself in the menu bar (optionally it can be completely hidden).
@@ -37,6 +41,20 @@ If you find any problem not mentioned there, please submit an issue.
 The primary development is done on OSX 10.10, but it should be running under OSX 10.7 as well.
 
 ## FAQ
+##### How do I turn on/off windows cycling sizes with multiple hotkey presses?
+
+If this feature is on, snapping to the left side of the screen (and top, bottom, and right sides) will resize the window to half of the screen.  If window is then snapped to the same side of the screen, it will resize to one third of the screen, and then two thirds of the screen.
+
+If the feature is off, additional snappings will have no effect and the window will remain at half of the screen.
+
+Currently, the only way to accomplish this is by running commands on the command line.  To turn the feature on, run:
+```
+defaults write org.shiftitapp.ShiftIt multipleActionsCycleWindowSizes YES
+```
+To turn it off, run:
+```
+defaults write org.shiftitapp.ShiftIt multipleActionsCycleWindowSizes NO
+```
 
 ##### I disabled the _Show Icon in Menu Bar_ in the preferences, how can I get it back?
 
@@ -97,7 +115,8 @@ $ brew cask install shiftit
 
 ### Making a release
 
-First, update the release version in [ShiftIt/ShiftIt-Info.plist](ShiftIt/ShiftIt-Info.plist).
+First, update the release version in [ShiftIt/ShiftIt-Info.plist](ShiftIt/ShiftIt-Info.plist). *NOTE* the version is in the file twice;
+once under `<key>CFBundleShortVersionString</key>` and again under `<key>CFBundleVersion</key>`.  Make sure you update both!
 
 Releases are handled using [fabric](http://docs.fabfile.org/en/1.5/). There are some dependencies that can be easily obtained using `pip`:
 
